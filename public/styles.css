@@ -375,19 +375,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
-}
-
-.sticker-share-btn:hover {
-    transform: scale(1.1);
-    background: #128C7E;
-}
-
-.sticker-share-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: white;
 }
 
 .sticker-image-container {
@@ -400,6 +389,27 @@ body {
     height: 100%;
     object-fit: contain;
     border-radius: 8px;
+}
+
+/* Garante exibição correta do dropdown */
+#collectionSelect {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 0.5rem 0;
+}
+
+/* Ajusta ícone do WhatsApp */
+.sticker-share-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff !important;
+}
+
+.sticker-share-btn:hover {
+    transform: scale(1.1);
+    background: #128C7E;
 }
 
 @keyframes spin {
