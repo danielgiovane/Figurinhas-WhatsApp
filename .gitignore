@@ -1,0 +1,8 @@
+// ignorar node modules
+node_modules/
+// ignorar arquivos de configuração
+.env
+// ignorar arquivos de build
+/build
+// ignorar arquivos de dependências
+/package-lock.json

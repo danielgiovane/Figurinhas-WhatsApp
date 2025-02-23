@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de Figurinhas WhatsApp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <div class="header">
+            <h1>Criador de Figurinhas WhatsApp</h1>
+            <p>Crie, organize e compartilhe suas figurinhas personalizadas</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="create">Criar</button>
+                <button class="tab-btn" data-tab="search">Buscar</button>
+                <button class="tab-btn" data-tab="my-stickers">Minhas Figurinhas</button>
+            </div>
+
+            <!-- Aba de Criação -->
+            <div class="tab-content active" id="create">
+                <div class="card">
+                    <div class="upload-area" id="dropZone">
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <div class="upload-content">
+                            <div class="upload-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="17 8 12 3 7 8" />
+                                    <line x1="12" y1="3" x2="12" y2="15" />
+                                </svg>
+                            </div>
+                            <button class="btn primary" id="selectButton">Selecionar Imagem</button>
+                            <p class="upload-text">ou arraste e solte</p>
+                            <p class="upload-hint">Formatos suportados: PNG, JPG, GIF (máx. 2MB)</p>
+                        </div>
+                        <div class="preview-content hidden">
+                            <div class="preview-image-container">
+                                <img id="previewImage"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                                    alt="Pré-visualização">
+                            </div>
+                            <div class="metadata-input">
+                                <input type="text" id="stickerName" placeholder="Nome da figurinha" required>
+                                <select id="collectionSelect">
+                                    <option value="">Nova Coleção</option>
+                                </select>
+                                <input type="text" id="keywords" placeholder="Palavras-chave (separadas por vírgula)">
+                            </div>
+                            <div class="preview-actions">
+                                <button class="btn secondary" id="removeButton">Remover</button>
+                                <button class="btn primary" id="createButton">
+                                    <span class="button-content">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                            <circle cx="8.5" cy="8.5" r="1.5" />
+                                            <polyline points="21 15 16 10 5 21" />
+                                        </svg>
+                                        Criar Figurinha
+                                    </span>
+                                    <span class="loading-spinner hidden"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aba de Busca -->
+            <div class="tab-content" id="search">
+                <div class="search-container">
+                    <div class="search-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="searchQuery" placeholder="Buscar por nome ou palavra-chave...">
+                    </div>
+                </div>
+                <div class="sticker-grid" id="searchResults"></div>
+            </div>
+
+            <!-- Aba de Coleção -->
+            <div class="tab-content" id="my-stickers">
+                <div class="collection-header">
+                    <h2>Minha Coleção</h2>
+                </div>
+                <div class="sticker-grid" id="myStickers"></div>
+            </div>
+        </div>
+
+        <!-- Modal de Visualização -->
+        <div id="previewModal" class="modal">
+            <div class="modal-inner">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modalImage">
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
